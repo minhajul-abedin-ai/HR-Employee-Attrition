@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - ALMAS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f5f5f5; /* White Smoky */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+        .admin-card {
+            background: #ffffff;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            padding: 35px;
+            margin-top: 30px;
+        }
+        .table-hover tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+        .navbar-brand {
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-secondary" href="/">ALMAS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-semibold" href="/admin">Admin Panel</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="admin-card">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 class="text-secondary fw-bold m-0">System Administration Data</h3>
+                <span class="badge bg-secondary px-3 py-2">Unified Multi-Dataset View</span>
+            </div>
+            
+            <div class="alert alert-light border text-muted mb-4">
+                <i class="bi bi-info-circle me-2"></i><strong>Architecture Note:</strong> The backend is currently processing requests across 3 distinct data clusters (IBM, KaggleHR, EmployeeChurn). Select a specific index from the Dashboard to run live model inferences.
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-hover align-middle border">
+                    <thead class="table-light text-secondary">
+                        <tr>
+                            <th>Organization / Dataset</th>
+                            <th>Total Processed Records</th>
+                            <th>Active Model Pipeline</th>
+                            <th>System Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-semibold">IBM HR Analytics</td>
+                            <td>2,378</td>
+                            <td>Random Forest Ensemble</td>
+                            <td><span class="badge bg-success bg-opacity-75">Online</span></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">Kaggle HR Database</td>
+                            <td>21,698</td>
+                            <td>Random Forest Ensemble</td>
+                            <td><span class="badge bg-success bg-opacity-75">Online</span></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">Employee Churn Records</td>
+                            <td>15,432</td>
+                            <td>Random Forest Ensemble</td>
+                            <td><span class="badge bg-success bg-opacity-75">Online</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-4 text-end">
+                <a href="/" class="btn btn-outline-secondary px-4 py-2">Return to Dashboard</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
