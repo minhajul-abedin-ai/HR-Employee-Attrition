@@ -4,7 +4,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 import warnings
+<<<<<<< HEAD
 import joblib  # Model save karne ke liye
+=======
+import joblib  # for saving models
+>>>>>>> b7a80df629499455e3d5a84d0ab5613e5cf1a533
 
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_curve, auc
@@ -18,18 +22,30 @@ from sklearn.svm import SVC
 
 warnings.filterwarnings('ignore')
 
+<<<<<<< HEAD
 # Results aur Models ke folders ensure karein
 os.makedirs('results', exist_ok=True)
 os.makedirs('models', exist_ok=True)  # NAYA: Models folder
 
 # Datasets ki list
+=======
+# Results and Models folders ensured
+os.makedirs('results', exist_ok=True)
+os.makedirs('models', exist_ok=True)  # NEW: Models folder
+
+# Datasets list
+>>>>>>> b7a80df629499455e3d5a84d0ab5613e5cf1a533
 datasets_info = {
     'IBM': 'dataset/preprocessed/Processed_Advanced_IBM.csv',
     'KaggleHR': 'dataset/preprocessed/Processed_Advanced_KaggleHR.csv',
     'EmployeeChurn': 'dataset/preprocessed/Processed_Advanced_EmployeeChurn.csv'
 }
 
+<<<<<<< HEAD
 # 7 Models define karein
+=======
+# 7 Models define
+>>>>>>> b7a80df629499455e3d5a84d0ab5613e5cf1a533
 models = {
     'Logistic_Regression': LogisticRegression(max_iter=1000, random_state=42),
     'Decision_Tree': DecisionTreeClassifier(random_state=42),
@@ -43,10 +59,17 @@ models = {
 results_list = []
 roc_data = {}
 
+<<<<<<< HEAD
 print("🚀 Starting Model Training, Evaluation & Saving...\n")
 
 for ds_name, path in datasets_info.items():
     print(f"📊 Processing Dataset: {ds_name}...")
+=======
+print("Starting Model Training, Evaluation & Saving...\n")
+
+for ds_name, path in datasets_info.items():
+    print(f"Processing Dataset: {ds_name}...")
+>>>>>>> b7a80df629499455e3d5a84d0ab5613e5cf1a533
     df = pd.read_csv(path)
     
     X = df.drop('Attrition', axis=1)
@@ -61,10 +84,17 @@ for ds_name, path in datasets_info.items():
     best_tpr = None
 
     for model_name, model in models.items():
+<<<<<<< HEAD
         # 1. Model Train Karein
         model.fit(X_train, y_train)
         
         # 2. MODEL SAVE KAREIN (.pkl file mein)
+=======
+        # 1. Model Train 
+        model.fit(X_train, y_train)
+        
+        # 2. MODEL SAVE  (.pkl file name)
+>>>>>>> b7a80df629499455e3d5a84d0ab5613e5cf1a533
         model_filename = f"models/{ds_name}_{model_name}.pkl"
         joblib.dump(model, model_filename)
         
@@ -120,7 +150,11 @@ plt.xticks(rotation=45)
 plt.legend(title='Dataset', bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.tight_layout()
 plt.savefig('results/Accuracy_Comparison_BarChart.png', dpi=300)
+<<<<<<< HEAD
 print("📈 Accuracy Bar Chart saved to 'results/Accuracy_Comparison_BarChart.png'")
+=======
+print("Accuracy Bar Chart saved to 'results/Accuracy_Comparison_BarChart.png'")
+>>>>>>> b7a80df629499455e3d5a84d0ab5613e5cf1a533
 
 # ==========================================
 # PLOT: ROC CURVES FOR BEST MODELS
@@ -141,5 +175,10 @@ plt.title('Receiver Operating Characteristic (ROC) - Best Models', fontsize=16, 
 plt.legend(loc="lower right")
 plt.tight_layout()
 plt.savefig('results/Best_Models_ROC_Curve.png', dpi=300)
+<<<<<<< HEAD
 print("📉 ROC Curves saved to 'results/Best_Models_ROC_Curve.png'")
 print("\n🎉 ALL TRAINING, SAVING AND PLOTTING COMPLETED SUCCESSFULLY! 🎉")
+=======
+print("ROC Curves saved to 'results/Best_Models_ROC_Curve.png'")
+print("\nALL TRAINING, SAVING AND PLOTTING COMPLETED SUCCESSFULLY!")
+>>>>>>> b7a80df629499455e3d5a84d0ab5613e5cf1a533
