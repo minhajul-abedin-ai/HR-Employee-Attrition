@@ -8,21 +8,11 @@ import matplotlib.pyplot as plt
 import matplotlib
 import numpy as np
 
-<<<<<<< HEAD
-# Backend par graphs banane ke liye
-=======
-# Set backend for matplotlib to avoid overlap of graphs in loop
->>>>>>> b7a80df629499455e3d5a84d0ab5613e5cf1a533
 matplotlib.use('Agg')
 
 app = Flask(__name__)
 os.makedirs('static', exist_ok=True)
 
-<<<<<<< HEAD
-# Datasets aur Models ki mapping
-=======
-# Data configuration for datasets and their corresponding models
->>>>>>> b7a80df629499455e3d5a84d0ab5613e5cf1a533
 DATA_CONFIG = {
     'IBM': {
         'csv': 'dataset/preprocessed/Processed_Advanced_IBM.csv',
@@ -42,11 +32,6 @@ DATA_CONFIG = {
 def home():
     return render_template('index.html')
 
-<<<<<<< HEAD
-# YEH ROUTE MISSING THA JO AB ADD KAR DIYA HAI
-=======
-# Admin route for future admin functionalities
->>>>>>> b7a80df629499455e3d5a84d0ab5613e5cf1a533
 @app.route('/admin')
 def admin():
     return render_template('admin.html')
@@ -59,21 +44,14 @@ def predict():
         
         try:
             emp_index = int(emp_id_str)
-            
-<<<<<<< HEAD
-            # Load selected dataset and model
-=======
-            # Load dataset and model based on user selection
->>>>>>> b7a80df629499455e3d5a84d0ab5613e5cf1a533
             config = DATA_CONFIG[dataset_choice]
             df = pd.read_csv(config['csv'])
             model = joblib.load(config['model'])
             
-            # Check if emp_index is valid
             if emp_index < 0 or emp_index >= len(df):
                 return render_template('index.html', result=f"Error: Employee ID must be between 0 and {len(df)-1} for {dataset_choice}.", prob=0, emp_id=emp_id_str)
 
-            # Separate Features
+
             X = df.drop('Attrition', axis=1)
             
             # Get specific employee data

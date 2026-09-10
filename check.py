@@ -8,7 +8,7 @@ datasets = {
 
 for name, path in datasets.items():
     print(f"\n{'='*40}")
-    print(f"🔍 Checking {name}")
+    print(f"Checking {name}")
     print(f"{'='*40}")
     try:
         df = pd.read_csv(path)
@@ -17,4 +17,4 @@ for name, path in datasets.items():
         print("Column Names:")
         print(df.columns.tolist())
     except Exception as e:
-        print(f"❌ Error loading file: {e}")
+        print(f"Error loading file: {e}")

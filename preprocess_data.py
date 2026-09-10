@@ -43,7 +43,7 @@ def preprocess_dataset(file_path, target_col, dataset_name, columns_to_drop=None
         # Save Processed Dataset (Features and Target combined)
         final_df = pd.concat([X_encoded.reset_index(drop=True), y.reset_index(drop=True)], axis=1)
         
-        # Kept the same naming convention so it doesn't break other files
+
         output_name = os.path.join(OUTPUT_FOLDER, f'Processed_Advanced_{dataset_name}.csv')
         final_df.to_csv(output_name, index=False)
         print(f"[SUCCESS] Saved as {output_name}")

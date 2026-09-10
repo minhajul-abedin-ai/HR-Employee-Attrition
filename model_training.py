@@ -26,7 +26,7 @@ DATASETS = {
     'EmployeeChurn': 'dataset/preprocessed/Processed_Advanced_EmployeeChurn.csv'
 }
 
-# 2. Define 7 Models with extended hyperparameters as requested by supervisor
+# 2. Define 7 Models with extended hyperparameters
 models_to_evaluate = {
     'Logistic_Regression': LogisticRegression(
         max_iter=1000, C=1.0, penalty='l2', solver='lbfgs', random_state=42

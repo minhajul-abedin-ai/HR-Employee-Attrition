@@ -10,7 +10,6 @@ import os
 import warnings
 warnings.filterwarnings('ignore')
 
-# Results folder banayen (agar nahi hai)
 os.makedirs('results', exist_ok=True)
 
 print("="*50)
@@ -110,7 +109,7 @@ for ds_name, path in datasets_info.items():
             
         plt.figure(figsize=(10, 6)) # Optimal minimalist size
         
-        # plot_type="dot" forces the standard, beautiful beeswarm plot
+        # plot_type="dot" forces the standard, beeswarm plot
         shap.summary_plot(
             shap_vals_to_plot, 
             X_shap_sample, 
